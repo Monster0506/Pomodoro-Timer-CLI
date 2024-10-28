@@ -54,7 +54,7 @@ The Pomodoro timer has default work and break intervals but can be customized us
 For testing purposes, a `--debug` flag has been added, which interprets each minute as a second. This allows you to quickly test different intervals without waiting for full-length sessions.
 
 ```bash
-./pomodoro-timer --work 2 --break 1 --cycles 2 --debug
+./pomodoro-timer --work 2 --break-time 1 --cycles 2 --debug
 ```
 
 In this example:
@@ -68,7 +68,7 @@ Use `--debug` to enable this feature and remove it for normal timing.
 ### Example
 
 ```bash
-./pomodoro-timer --work 30 --break 10 --cycles 3
+./pomodoro-timer --work 30 --break-time 10 --cycles 3
 ```
 
 In this example, the timer will set:
