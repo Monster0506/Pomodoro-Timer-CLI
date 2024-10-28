@@ -1,10 +1,11 @@
 use clap::Parser;
+use colored::*;
 use std::time::Duration;
 use tokio::time;
 #[tokio::main]
 async fn main() {
     let config = PomodoroConfig::parse(); // Parse CLI args
-    println!("Pomodoro timer started!");
+    println!("{}", "Pomodoro timer started!".green());
     start_pomodoro(config).await;
 }
 
@@ -39,15 +40,18 @@ async fn run_timer(duration: u64, label: &str, debug: bool) {
 
 async fn start_pomodoro(config: PomodoroConfig) {
     for cycle in 1..=config.cycles {
-        println!("Starting work session {} of {}", cycle, config.cycles);
+        println!(
+            "{}",
+            format!("Starting work session {} of {}", cycle, config.cycles).blue()
+        );
         run_timer(config.work, "Work", config.debug).await;
         if cycle < config.cycles {
-            println!("Starting short break");
+            println!("{}", "Starting short break".yellow());
             run_timer(config.break_time, "Break", config.debug).await;
         } else {
-            println!("Starting long break");
+            println!("{}", "Starting long break".red());
             run_timer(config.long_break, "Long Break", config.debug).await;
         }
     }
-    println!("Pomodoro session complete!");
+    println!("{}", "Pomodoro session complete!".green().bold());
 }

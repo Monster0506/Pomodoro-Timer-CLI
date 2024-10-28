@@ -45,7 +45,7 @@ The Pomodoro timer has default work and break intervals but can be customized us
 ### Options
 
 - `-w`, `--work`: Set the work duration in minutes (default is 25 minutes)
-- `-b`, `--break`: Set the break duration in minutes (default is 5 minutes)
+- `-b`, `--break-time`: Set the break duration in minutes (default is 5 minutes)
 - `-l`, `--long-break`: Set the long break duration after a set number of sessions (default is 15 minutes)
 - `-c`, `--cycles`: Number of work/break cycles before a long break (default is 4 cycles)
 
